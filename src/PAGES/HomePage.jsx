@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import BookAppointment from './BookAppointment'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+
 const Home = (prop) => {
     const [formToshow, setFormToshow] = useState(null)
     const [fullName, setFullName] = useState("")
@@ -10,8 +10,7 @@ const Home = (prop) => {
     const [phone, setPhone] = useState("")
     const [enterPassword, setEnterPassword] = useState("")
     const [confirmPassword, setconfirmPassword] = useState("")
-    const navigate = useNavigate();
-
+   
     const handleAppointmentForm = (e) => {
         e.preventDefault()
         console.log(fullName, email, phone, enterPassword, confirmPassword)
@@ -19,22 +18,27 @@ const Home = (prop) => {
             alert("Please fill out all fields")
         }
     }
-
+    
     return (
 
         <div>
          
             <div className="login-signup">
-                <h2 className='welcome' >{prop.loggedInUserName ? <h3>Welcome, {prop.loggedInUserName}!</h3> :
+                <h2 className='welcome' >{prop.loggedInUserName ?
+                 <h3>Welcome, {prop.loggedInUserName}!</h3> :
                     <Link
                         to="/">
                         <button className='btn' type="submit">Login</button>
                     </Link>
-                }</h2>
-                <h2 className='welcome' >{prop.loggedInUserName ? <h2></h2> :
+                }
+                </h2>
+                <h2 className='welcome' >{prop.loggedInUserName ?  <Link
+                        to="/">
+                        <button className='btn' type="submit">Log Out</button>
+                    </Link> :
                     <Link
                         to="/signup">
-                        <button className='btn' type="submit">Sign up</button>
+                        <button className='btn' type="submit">Sign Up</button>
                     </Link>
                 }</h2>
 
@@ -100,7 +104,11 @@ const Home = (prop) => {
 
             </div>
 
-            {
+            <div className="image">
+              
+            </div>
+
+            {  
                 formToshow == "contact" ?
                     <BookAppointment
                         fullName={fullName}

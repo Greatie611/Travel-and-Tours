@@ -1,6 +1,6 @@
 
 body {
-  background-image: url(https://scontent.fphc2-2.fna.fbcdn.net/v/t39.30808-6/480960966_122225796116069506_585187437625605078_n.png?stp=dst-png_s960x960&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeErvIF--nffcZay8cu--ODVpWO7UZ1tPbGlY7tRnW09scj0ZS63XOjVklpQluc_2cOHNG1o0myUpYxDUiCv7Mfs&_nc_ohc=gMuokxaorisQ7kNvgHV_nDh&_nc_oc=AdmGp6zfLOUeTgvXACevfQ0qbu-3YXdOdx2mmdBJNWEWoqf-6mIi26gmJn23ZtoaWJI&_nc_zt=23&_nc_ht=scontent.fphc2-2.fna&_nc_gid=gW8vh2Xp4oxUJkNaatGPvw&oh=00_AYEpylBmwjJQ-pmr7aWA-YHB9-A44yQ2W_X7kHpAMEZwhA&oe=67F44072);
+  background-image: url("../public/Rectangle\ 19290.png");
   background-size: cover;
   color: white;
 }
@@ -36,9 +36,10 @@ option {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 100px;
   font-family: serif;
-  font-size: small;
   font-weight: 900;
+ 
 }
 
 .nav nav ul {
@@ -85,6 +86,7 @@ nav ul a {
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
+  
 }
 
 .sub3 {
@@ -186,6 +188,36 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 50px;
-  margin-bottom: 60px;
+  border-bottom: 2px solid rgb(186, 180, 180);
+  border-radius: 30px;
+}
+
+.password-input-container {
+  position: relative; 
+}
+
+.password-input[type="password"],
+.password-input[type="text"] { 
+  padding-right: 30px; 
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 85px; 
+  top: 18px;
+  cursor: pointer;
+ font-size: small;
+}
+
+.already{
+  color: white;
+}
+.image {
+  background-image: url("../public/partners.png");
+  background-size: cover;
+}
+
+.error{
+  color: white;
+ 
 }

@@ -21,6 +21,7 @@ function App() {
   const [confirmPassword, setconfirmPassword] = useState("")
   const [loggedInUserName, setLoggedInUserName] = useState('')
   const [loginSuccess, setLoginSuccess] = useState(false)
+  const [error, setError] = useState ("")
 
 
   const handleAppointmentForm = (e) => {
@@ -30,6 +31,20 @@ function App() {
       alert("Please fill out all fields")
       return false;
     }
+    if (enterPassword !== confirmPassword) {
+      alert('Passwords do not match.');
+      return false;
+    }
+    if (enterPassword.length && confirmPassword.length != 8 ) {
+      alert('Passwords must contain 8 characters.');
+      return ;
+    }
+    if (!enterPassword.includes && !confirmPassword.includes !=="!" || ("@") || ("$") ) {
+      alert('Passwords must contain special characters.');
+      return ;
+    }
+
+
     setFullName("")
     setEmail("")
     setPhone("")
@@ -42,15 +57,15 @@ function App() {
     e.preventDefault()
     console.log(fullName, enterPassword)
     if (!fullName|| !enterPassword) {
-      alert("Please enter both name and password")
-      return false;
+        setError("Please enter both name and password")  
+  return true
     }
     setLoggedInUserName(fullName)
     setFullName("")
     setEnterPassword("")
     setLoginSuccess(true)
     navigate('/home')
-    return true;
+ 
   }
   const handleSignUpForm = (e, navigate) => {
     e.preventDefault()
@@ -115,6 +130,7 @@ function App() {
           setEnterPassword={setEnterPassword}
           handleLoginForm={handleLoginForm}
           loginSuccess={loginSuccess}
+          error ={error}
         />} />
         <Route path='/signup' element={<SignUp
         fullName={fullName}
@@ -163,7 +179,8 @@ function App() {
         } />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/services' element={<UpcomingPackages />} />
+        <Route path='/services' element={<UpcomingPackages 
+        />} />
 
 
 

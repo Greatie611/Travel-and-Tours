@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 const BookAppointment = (prop) => {
-  
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  }
 
   return (
     <div className="form-cont">
@@ -20,21 +23,43 @@ const BookAppointment = (prop) => {
             value={prop.phone}
             onChange={(e) => prop.setPhone(e.target.value)}
           />
-          <input type="password" placeholder='Enter Password'
+          <div className="password-input-container">
+          <input type={isPasswordVisible ? 'text' : 'password'}
+           placeholder='Enter Password'
             value={prop.enterPassword}
             onChange={(e) => prop.setEnterPassword(e.target.value)}
+             className="password-input"
           />
-          <input type="password" placeholder='Confirm Password'
+           <span
+              onClick={togglePasswordVisibility}
+              className="password-toggle-icon" 
+            >
+              {isPasswordVisible ? '👁️' : '👁️‍🗨️'}
+             
+            </span>
+          </div>
+          <div className="password-input-container">
+          <input type={isPasswordVisible ? 'text' : 'password'}
+           placeholder='Confirm Password'
             value={prop.confirmPassword}
             onChange={(e) => prop.setconfirmPassword(e.target.value)}
+             className="password-input"
           />
+           <span
+              onClick={togglePasswordVisibility}
+              className="password-toggle-icon" 
+            >
+              {isPasswordVisible ? '👁️' : '👁️‍🗨️'}
+             
+            </span>
+          </div>
 
 
           <button className='btn-1' type="submit">Submit</button>
        
         </form>
         <Link to="/home">
-        <button className='btn-2' type="submit">Go Back Home</button>
+        <button className='btn-2' type="submit">Go Back</button>
         </Link>
       </div>
     
